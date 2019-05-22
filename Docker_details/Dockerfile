@@ -21,8 +21,8 @@ RUN apt-get install libglew-dev python-dev libboost-dev libboost-python-dev libb
 RUN apt-get install -y wget
 
 #Download pygplates and install it
-RUN wget https://sourceforge.net/projects/gplates/files/pygplates/beta-revision-12/pygplates-ubuntu-trusty_1.5_1_amd64.deb
-RUN dpkg -i pygplates-ubuntu-trusty_1.5_1_amd64.deb
+RUN wget https://sourceforge.net/projects/gplates/files/pygplates/beta-revision-18/pygplates-ubuntu-trusty_2.1_1_amd64.deb
+RUN dpkg -i pygplates-ubuntu-trusty_2.1_1_amd64.deb
 
 #Download conda python because I like it
 RUN wget -O ~/miniconda.sh https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh  && \
@@ -40,7 +40,7 @@ WORKDIR /workspace
 EXPOSE 8888
 
 #Set the path so python can find pygplates
-ENV PYTHONPATH ${PYTHONPATH}:/usr/lib:/usr/lib/pygplates/revision12/
+ENV PYTHONPATH ${PYTHONPATH}:/usr/lib:/usr/lib/pygplates/revision18/
 ENV PATH "/opt/conda/bin:$PATH"
 
 RUN ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh
